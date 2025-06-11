@@ -1,6 +1,7 @@
 package rules
 
 import (
+	"fmt"
 	"path/filepath"
 	"regexp"
 	"strings"
@@ -260,8 +261,7 @@ func (r *FunctionLengthRule) Check(ctx *FileContext) []Violation {
 						Message:  "Fonction trop longue",
 						Line:     funcStart,
 						Severity: "major",
-						Description: "La fonction '" + funcName + "' fait " + 
-							strings.Repeat("", funcLength) + " lignes (max: 25)",
+						Description: fmt.Sprintf("La fonction '%s' fait %d lignes (max: 25)", funcName, funcLength),
 					})
 				}
 				inFunction = false

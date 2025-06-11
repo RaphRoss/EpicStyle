@@ -1,6 +1,7 @@
 package rules
 
 import (
+	"fmt"
 	"regexp"
 	"strings"
 )
@@ -155,8 +156,7 @@ func (r *FunctionParametersRule) Check(ctx *FileContext) []Violation {
 					Message:  "Trop de paramètres",
 					Line:     i + 1,
 					Severity: "major",
-					Description: "La fonction '" + funcName + "' a " + 
-						strings.Repeat("", paramCount) + " paramètres (max: 4)",
+					Description: fmt.Sprintf("La fonction '%s' a %d paramètres (max: 4)", funcName, paramCount),
 				})
 			}
 		}
@@ -206,7 +206,7 @@ func (r *FileMaxFunctionsRule) Check(ctx *FileContext) []Violation {
 	funcRegex := regexp.MustCompile(`^\s*\w+\s+(\w+)\s*\([^)]*\)\s*$`)
 	functionCount := 0
 	
-	for i, line := range ctx.Lines {
+	for _, line := range ctx.Lines {
 		if matches := funcRegex.FindStringSubmatch(line); len(matches) > 1 {
 			funcName := matches[1]
 			if funcName != "main" {
@@ -221,8 +221,7 @@ func (r *FileMaxFunctionsRule) Check(ctx *FileContext) []Violation {
 			Message:  "Trop de fonctions dans le fichier",
 			Line:     1,
 			Severity: "major",
-			Description: "Le fichier contient " + strings.Repeat("", functionCount) + 
-				" fonctions (max: 3, hors main)",
+			Description: fmt.Sprintf("Le fichier contient %d fonctions (max: 3, hors main)", functionCount),
 		})
 	}
 	
