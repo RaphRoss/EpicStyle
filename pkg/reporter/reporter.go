@@ -5,10 +5,11 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"strconv"
 	"strings"
 
-	"github.com/your-username/epicstyle/pkg/analyzer"
-	"github.com/your-username/epicstyle/pkg/rules"
+	"github.com/RaphRoss/EpicStyle/pkg/analyzer"
+	"github.com/RaphRoss/EpicStyle/pkg/rules"
 )
 
 // Reporter gère l'affichage des résultats
@@ -131,7 +132,8 @@ func (r *Reporter) printFinalScore(results *analyzer.AnalyzeResults) {
 	fmt.Printf("║                           SCORE GLOBAL: %.1f%%", results.TotalScore)
 	
 	// Padding pour centrer
-	padding := 79 - len(fmt.Sprintf("SCORE GLOBAL: %.1f%%", results.TotalScore)) - 27
+	scoreText := fmt.Sprintf("SCORE GLOBAL: %.1f%%", results.TotalScore)
+	padding := 79 - len(scoreText) - 27
 	fmt.Print(strings.Repeat(" ", padding))
 	fmt.Println("║")
 	

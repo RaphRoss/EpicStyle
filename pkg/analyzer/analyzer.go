@@ -4,7 +4,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/your-username/epicstyle/pkg/rules"
+	"github.com/RaphRoss/EpicStyle/pkg/rules"
 )
 
 // FileResult contient les résultats d'analyse d'un fichier

@@ -6,8 +6,8 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/your-username/epicstyle/pkg/analyzer"
-	"github.com/your-username/epicstyle/pkg/reporter"
+	"github.com/RaphRoss/EpicStyle/pkg/analyzer"
+	"github.com/RaphRoss/EpicStyle/pkg/reporter"
 )
 
 type Config struct {

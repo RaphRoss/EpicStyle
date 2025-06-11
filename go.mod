@@ -1,4 +1,4 @@
-module git@github.com:RaphRoss/EpicStyle.git
+module github.com/RaphRoss/EpicStyle
 
 go 1.21
 
