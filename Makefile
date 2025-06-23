@@ -1,13 +1,22 @@
-# Makefile pour compiler main.go
+.PHONY: build test clean install
 
 BINARY_NAME=epicstyle
-
-all: build
+BUILD_DIR=build
 
 build:
-	go build -o $(BINARY_NAME) main.go
+	go build -o $(BUILD_DIR)/$(BINARY_NAME) .
+
+test:
+	go test ./...
 
 clean:
-	rm -f $(BINARY_NAME)
+	rm -rf $(BUILD_DIR)
 
-.PHONY: all build clean
+install: build
+	sudo cp $(BUILD_DIR)/$(BINARY_NAME) /usr/local/bin/
+
+lint:
+	golangci-lint run
+
+format:
+	go fmt ./...
