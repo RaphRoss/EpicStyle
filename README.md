@@ -37,18 +37,6 @@ EpicStyle est un outil en ligne de commande développé en Go pour analyser auto
 
 ### Compilation
 ```bash
-# Cloner le projet
-git clone https://github.com/your-username/epicstyle.git
-cd epicstyle
-
-# Initialiser le module Go
-go mod init github.com/your-username/epicstyle
-
-# Compiler
-go build -o epicstyle cmd/epicstyle/main.go
-
-# Ou installer globalement
-go install cmd/epicstyle/main.go
 ```
 
 ## 🎯 Utilisation
@@ -87,7 +75,7 @@ echo $?  # 0 = succès, 1 = violations détectées
 ### Sortie Standard
 ```
 ╔══════════════════════════════════════════════════════════════════════════════╗
-║                            EPICSTYLE - RAPPORT D'ANALYSE                     ║
+║                         EPICSTYLE - RAPPORT D'ANALYSE                        ║
 ╚══════════════════════════════════════════════════════════════════════════════╝
 
 📊 RÉSUMÉ GLOBAL
@@ -102,9 +90,9 @@ echo $?  # 0 = succès, 1 = violations détectées
 ❌ parser.c (82.1% - 20 lignes - 2 violations)
 
 ╔══════════════════════════════════════════════════════════════════════════════╗
-║                           SCORE GLOBAL: 85.3%                                ║
-║ [██████████████████████████████████████████████░░░░░░░░] 85.3%               ║
-║                    🎉 TRÈS BIEN! Quelques petits détails à corriger.         ║
+║                             SCORE GLOBAL: 85.3%                              ║
+║       [██████████████████████████████████████████████░░░░░░░░] 85.3%         ║
+║               🎉 TRÈS BIEN! Quelques petits détails à corriger.              ║
 ╚══════════════════════════════════════════════════════════════════════════════╝
 ```
 
@@ -139,37 +127,10 @@ echo $?  # 0 = succès, 1 = violations détectées
 
 ```
 epicstyle/
-├── cmd/epicstyle/          # Point d'entrée principal
-│   └── main.go
-├── pkg/                    # Packages principaux
-│   ├── analyzer/           # Moteur d'analyse
-│   │   ├── analyzer.go
-│   │   └── file_reader.go
-│   ├── rules/              # Règles de style
-│   │   ├── rule_interface.go
-│   │   ├── base_rules.go
-│   │   └── advanced_rules.go
-│   ├── reporter/           # Génération de rapports
-│   │   └── reporter.go
-│   └── utils/              # Utilitaires
-│       └── file_utils.go
-├── examples/               # Exemples de fichiers
-├── go.mod
 └── README.md
 ```
 
 ## 🧪 Tests
-
-```bash
-# Lancer les tests
-go test ./...
-
-# Tests avec couverture
-go test -cover ./...
-
-# Tests verbeux
-go test -v ./...
-```
 
 ## 📋 Codes de Règles
 
@@ -191,16 +152,6 @@ go test -v ./...
 - `C-G1` : Pas de globales non const
 - `C-F4` : Maximum 4 paramètres
 - `C-L5` : Pas de déclaration dans les boucles
-
-## 🤝 Contribution
-
-Les contributions sont les bienvenues ! Voici comment contribuer :
-
-1. Fork le projet
-2. Créer une branche feature (`git checkout -b feature/AmazingFeature`)
-3. Commit les changements (`git commit -m 'Add some AmazingFeature'`)
-4. Push vers la branche (`git push origin feature/AmazingFeature`)
-5. Ouvrir une Pull Request
 
 ## 📝 License
 
@@ -228,7 +179,7 @@ Si vous trouvez un bug, merci de créer une issue avec :
 
 Pour toute question ou suggestion :
 - Créer une issue sur GitHub
-- Envoyer un email à : support@epicstyle.dev
+- Envoyer un email à : raphael.rossignol@epitech.eu
 
 ---
 
